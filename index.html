@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>
+        Senthil aaa majaka :D
+    </title>
+    <script src="jquery.js"></script>
+    <script>
+        //Callback for Next Slide for all Lessons
+        function next() {
+            scrollId++;
+            console.log("Page - " + scrollId + " in Lesson " + lesson);
+            $("#main_image").attr('src', 'images/' + lesson + '/' + scrollId + '.jpg');
+            checkDisability(scrollId);
+        };
+
+        //Callback for Previous Slide for all Lessons
+        function prev() {
+            scrollId--;
+            console.log("Page - " + scrollId + " in Lesson " + lesson);
+            $("#main_image").attr('src', 'images/' + lesson + '/' + scrollId + '.jpg');
+            checkDisability(scrollId);
+        };
+
+        //Making Buttons to be Disabled 
+        function checkDisability(btnId) {
+            (btnId <= 1) ? $("#prev").attr("disabled", "true"): $("#prev").removeAttr("disabled", "false");
+            (btnId >= limits[lesson - 1]) ? $("#next").attr("disabled", "true"): $("#next").removeAttr("disabled",
+                "false");
+        }
+    </script>
+</head>
+
+<body>
+    <center><h2>Math Easy</h2><h3>Ver 1.0.0</h3></center>
+    <img id="main_image" width="100%" height="400px" alt="Slide not available">
+    <button id="prev" onclick="prev()">Previous</button>
+    <button id="next" onclick="next()">Next</button>
+    <button id="prevLesson">Prev Lesson</button>
+    <button id="nextLesson">Next Lesson</button>
+
+</body>
+
+<script>
+    var limits = [3, 5];
+    var scrollId = 1;
+    var lesson = 1;
+    $(function () {
+        //Called when the App Loads at first time
+        checkDisability(scrollId);
+
+        //Loading Image for First Time
+        $("#main_image").attr('src', 'images/' + lesson + '/' + scrollId + '.jpg');
+
+        //Migrating to Previous Lesson
+        $("#prevLesson").on('click', () => {
+            lesson--;
+            next();
+        })
+
+        //Migrating to Next Lesson
+        $("#nextLesson").on('click', () => {
+            lesson++;
+            next();
+        })
+
+    })
+</script>
+
+</html>
