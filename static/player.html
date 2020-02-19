@@ -1,0 +1,266 @@
+<html>
+
+<head>
+    <title>
+        Senthil aaa majaka :D
+    </title>
+    <!--firstly try to load jquery as browser-->
+    <script src="./mydata.js"></script>
+    <script src="./jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <!--if first not work. load using require()-->
+    <script src="./bootstrap.min.js"></script>
+    <script>
+        if (typeof jQuery == "undefined") {
+            window.$ = window.jQuery = require('jquery');
+        }
+    </script>
+    <script>
+        //Callback for Next Slide for all Lessons
+        function next() {
+            scrollId++;
+            $("#status").html(scrollId);
+            console.log("Page - " + scrollId + " in Lesson " + lesson);
+            $("#main_image").attr('src', './images/' + lesson + '/' + scrollId + '.jpg');
+            checkDisability(scrollId);
+        };
+
+        //Callback for Previous Slide for all Lessons
+        function prev() {
+            scrollId--;
+            $("#status").html(scrollId);
+            $("#main_image").attr('src', './images/' + lesson + '/' + scrollId + '.jpg');
+            checkDisability(scrollId);
+        };
+
+        //Making Buttons to be Disabled 
+        function checkDisability(btnId) {
+            (btnId <= 1) ? $("#prev").attr("disabled", "true") : $("#prev").removeAttr("disabled", "false");
+            (btnId >= limits[lesson - 1]) ? $("#next").attr("disabled", "true") : $("#next").removeAttr("disabled",
+                "false");
+        }
+    </script>
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="row" style="height: 95%;">
+        <div class="col-3">
+            <!--Accordion wrapper-->
+            <h3 id="title"></h3>
+            <div id="accordionEx" role="tablist" aria-multiselectable="true"
+                style="margin-left: 20px; margin-top: 20px;">
+
+                <div id="generated">
+
+                </div>
+
+                <!-- Accordion card -->
+                <div class="card">
+
+                    <!-- Card header -->
+                    <div class="card-header" role="tab" id="headingOne1">
+                        <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                            aria-controls="collapseOne1" style="text-decoration:none">
+                            <h5 class="mb-0">
+                                Lesson 1<i class="fas fa-angle-down rotate-icon"></i>
+                            </h5>
+                        </a>
+                    </div>
+
+                    <!-- Card body -->
+                    <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                        data-parent="#accordionEx">
+                        <div class="card-body">
+                            Chapter 1
+                        </div>
+                        <div class="card-body">
+                            Chapter 2
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Accordion card -->
+
+                <!-- Accordion card -->
+                <div class="card">
+
+                    <!-- Card header -->
+                    <div class="card-header" role="tab" id="headingTwo2">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                            aria-expanded="false" aria-controls="collapseTwo2" style="text-decoration:none">
+                            <h5 class="mb-0">
+                                Lesson 2 <i class="fas fa-angle-down rotate-icon"></i>
+                            </h5>
+                        </a>
+                    </div>
+
+                    <!-- Card body -->
+                    <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                        data-parent="#accordionEx">
+                        <div class="card-body">
+                            Chapter 1
+                        </div>
+                        <div class="card-body">
+                            Chapter 2
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Accordion card -->
+
+                <!-- Accordion card -->
+                <div class="card">
+
+                    <!-- Card header -->
+                    <div class="card-header" role="tab" id="headingThree3">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                            aria-expanded="false" aria-controls="collapseThree3" style="text-decoration:none">
+                            <h5 class="mb-0">
+                                Lesson 3 <i class="fas fa-angle-down rotate-icon"></i>
+                            </h5>
+                        </a>
+                    </div>
+
+                    <!-- Card body -->
+                    <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                        data-parent="#accordionEx">
+                        <div class="card-body">
+                            Chapter 1
+                        </div>
+                        <div class="card-body">
+                            Chapter 2
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Accordion card -->
+
+            </div>
+            <!-- Accordion wrapper -->
+        </div>
+
+        <!-- Main Frame Starts here -->
+        <div class="col-9">
+            <img id="main_image" width="98%" height="94%" alt="Slide not available">
+
+            <!-- <button id="prev" onclick="prev()">Previous</button> -->
+            <div class="row justify-content-around" style="margin-top: 20px;">
+                <button class="learn-more" id="prev" onclick="prev()">
+
+                    <span class="circle" aria-hidden="false">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Previous</span>
+                </button>
+
+                <span>
+                    <h3 id="status">1</h3>
+                </span>
+
+                <button class="learn-more" id="next" onclick="next()">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Next</span>
+                </button>
+
+            </div>
+            <!-- <button id="next" onclick="next()">Next</button> -->
+            <!-- <button id="prevLesson">Prev Lesson</button>
+                <button id="nextLesson">Next Lesson</button> -->
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var limits = [3, 5];
+    var scrollId = 1;
+    var lesson = 1;
+
+    // function generate_mini(dummy, dum) {
+    //     return $("#generated_mini").append(pd["lessons"][dummy]["chapters"][dum]["title"]);
+    // }
+
+
+    $(function () {
+        const params = new URLSearchParams(document.location.search);
+        console.log(params.get("sub"));
+        var pd = data[params.get("sub")];
+        $("#title").html(pd["title"]);
+        // var dummy;
+        // for (var dummy = 0; dummy <= pd["lessons"].length; dummy++) {
+        //     $("#generated").append('<div class="card"><div class="card-header" role="tab" id="headingOne1"><a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"aria-controls="collapseOne1" style="text-decoration:none"<h5 class="mb-0">' + pd["lessons"][dummy]["title"] + '<i class="fas fa-angle-down rotate-icon"></i></h5> </a></div><div id="generated_mini"></div></div>');
+        //     for (var dum = 0; dum <= pd["lessons"][dummy]["chapters"].length; dum++) {
+        //         generate_mini();
+        //     }
+        //     // for (var dum = 0; dum <= pd["lessons"][dummy]["chapters"].length; dum++) {
+        //     //     $("#generated_mini").append('<div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx"> <div class="card-body">' + pd["lessons"][dummy]["chapters"][dum]["title"] + ' </div> </div> ');
+        //     // }
+        // }
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                // classList.toggle("close");
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+        console.log(data);
+        //Called when the App Loads at first time
+        checkDisability(scrollId);
+
+        //Loading Image for First Time
+        $("#main_image").attr('src', './images/' + lesson + '/' + scrollId + '.jpg');
+
+        //Migrating to Previous Lesson
+        $("#prevLesson").on('click', () => {
+            lesson--;
+            next();
+        })
+
+        //Migrating to Next Lesson
+        $("#nextLesson").on('click', () => {
+            lesson++;
+            next();
+        })
+
+    })
+</script>
+
+</html>
