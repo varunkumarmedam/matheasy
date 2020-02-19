@@ -5,6 +5,7 @@
     const bodyParser = require('body-parser');
 
     app.use("/static", express.static(__dirname + '/static'));
+    app.use("/", express.static(__dirname + '/static/data.js'));
     app.use(bodyParser.urlencoded({
         extended: true
     }));
