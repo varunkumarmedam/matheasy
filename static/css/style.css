@@ -1,3 +1,25 @@
+
+/* Home page CSS */
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  height: 200px;
+}
+
+.card:hover {
+  -webkit-transform: translate(-10px, 10px);
+  transform: translate(-10px, -10px);
+  box-shadow: 10px 10px 5px #5f5f5f;
+}
+
+a {
+  text-decoration: none !important;
+  color: blue;
+}
+
+/* Player CSS Starts Here */
 h2{
     color: red;
 }

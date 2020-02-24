@@ -1,27 +1,9 @@
 <html>
 
 <head>
+    <title>Place Holder</title>
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
-    <style>
-        .card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            transition: all 0.5s;
-            height: 200px;
-        }
-
-        .card:hover {
-            -webkit-transform: translate(-10px, 10px);
-            transform: translate(-10px, -10px);
-            box-shadow: 10px 10px 5px #5f5f5f;
-        }
-
-        a {
-            text-decoration: none !important;
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 
 <body>
@@ -41,10 +23,14 @@
 
     <div class="row justify-content-around">
         <a class="col-3" href="player?sub=maths">
-            <div class="card" style="margin:auto">Maths</div>
+            <div class="card">Maths</div>
         </a>
-        <a class="card col-3" href="player?sub=science">Science</a>
-        <a class="col-3 card" href="player?sub=graphics">Graphics</a>
+        <a class="col-3" href="player?sub=science">
+            <div class="card">Science</div>
+        </a>
+        <a class="col-3" href="player?sub=graphics">
+            <div class="card">Graphics</div>
+        </a>
     </div>
 
 </body>
