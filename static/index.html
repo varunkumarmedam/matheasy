@@ -5,10 +5,10 @@
     <style>
         .card {
             background-color: white;
-            position: relative;
             padding: 20px;
             border-radius: 10px;
             transition: all 0.5s;
+            height: 200px;
         }
 
         .card:hover {
@@ -25,11 +25,24 @@
 </head>
 
 <body>
-    <center>
-        <h3>Place Holder</h3>
-    </center>
+
+    <div class="row">
+        <div class="col-5">
+            <center>
+                <h3 style="color: #4186F6; font-weight: bold;margin-top: 30px;">Place Holder</h3>
+            </center>
+            <center>
+                <h5 style="font-weight: bold;font-size:20px; margin-top:10px">#buildEasyBuildHappen</h5>
+            </center>
+        </div>
+        <div class="col-7"><img src="./images/main_img.jpg" width="100%"></div>
+    </div>
+
+
     <div class="row justify-content-around">
-        <a class="card col-3" href="player?sub=maths">Maths</a>
+        <a class="col-3" href="player?sub=maths">
+            <div class="card" style="margin:auto">Maths</div>
+        </a>
         <a class="card col-3" href="player?sub=science">Science</a>
         <a class="col-3 card" href="player?sub=graphics">Graphics</a>
     </div>

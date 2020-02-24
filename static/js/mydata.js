@@ -31,10 +31,16 @@ var data = {
                 "title": "Lesson 1",
                 "chapters": [
                     {
-                        "title": "Chapter 1"
+                        "title": "Chapter 1",
+                        "length": 4
                     },
                     {
-                        "title": "Chapter 2"
+                        "title": "Chapter 2",
+                        "length": 2
+                    },
+                    {
+                        "title": "Chapter 3",
+                        "length": 4
                     }
                 ]
             },
@@ -42,10 +48,12 @@ var data = {
                 "title": "Lesson 2",
                 "chapters": [
                     {
-                        "title": "Chapter 1"
+                        "title": "Chapter 1",
+                        "length": 2
                     },
                     {
-                        "title": "Chapter 2"
+                        "title": "Chapter 2",
+                        "length": 3
                     }
                 ]
             }
